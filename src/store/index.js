@@ -4,39 +4,114 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 const state = {
-  expenses: [
+  categories: [
     {
-      category: 'Groceries',
-      description: 'Trader Joe\'s food',
-      amount: 42332
+      name: 'Groceries',
+      expenses: [
+        {
+          description: 'Trader Joe\'s food',
+          amount: 42332
+        }
+      ]
     },
     {
-      category: 'Travel',
-      description: 'Gas',
-      amount: 76473
+      name: 'School',
+      expenses: []
     },
     {
-      category: 'Income',
-      description: 'Ebay sale - guitar',
-      amount: 110200
+      name: 'Entertainment',
+      expenses: [
+        {
+          category: 'Entertainment',
+          description: 'Milk & Eggs for the pancake party with neighbors',
+          amount: 230000
+        }
+      ]
     },
     {
-      category: 'Entertainment',
-      description: 'Milk & Eggs for the pancake party with neighbors',
-      amount: 230000
+      name: 'Utensils',
+      expenses: []
     },
     {
-      category: 'Misc',
-      description: 'The usual weekly run',
-      amount: 110000
+      name: 'Kids',
+      expenses: []
     },
     {
-      category: 'Income',
-      description: 'Paycheck',
-      amount: 570000
+      name: 'Travel',
+      expenses: [
+        {
+          description: 'Gas',
+          amount: 76473
+        }
+      ]
+    },
+    {
+      name: 'Commute',
+      expenses: []
+    },
+    {
+      name: 'Insurance',
+      expenses: []
+    },
+    {
+      name: 'Clothing',
+      expenses: []
+    },
+    {
+      name: 'Car',
+      expenses: []
+    },
+    {
+      name: 'Taxes',
+      expenses: []
+    },
+    {
+      name: 'Clothing',
+      expenses: ''
+    },
+    {
+      name: 'Health',
+      expenses: ''
+    },
+    {
+      name: 'Home',
+      expenses: ''
+    },
+    {
+      name: 'Beauty',
+      expenses: ''
+    },
+    {
+      name: 'Income',
+      expenses: [
+        {
+          description: 'Ebay sale - guitar',
+          amount: 110200
+        },
+        {
+          description: 'Paycheck',
+          amount: 570000
+        }
+      ]
+    },
+    {
+      name: 'Taxes',
+      expenses: ''
+    },
+    {
+      name: 'Misc',
+      expenses: [
+        {
+          description: 'The usual weekly run',
+          amount: 110000
+        }
+      ]
+    },
+    {
+      name: 'Gifting',
+      expenses: []
     }
-  ],
-  categories: ['Groceries', 'School', 'Entertainment', 'Utensils', 'Kids', 'Travel', 'Commute', 'Insurance', 'Clothing', 'Car', 'Taxes', 'Health', 'Home', 'Beauty', 'Income', 'Misc', 'Gifting']
+  ]
 }
 
 const mutations = {

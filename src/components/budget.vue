@@ -1,11 +1,11 @@
 <template>
   <div class="budget">
     <ul class="sections">
-      <li>
+      <li v-for="category in categories" v-bind:key="category.name">
         <img src="">
         <div class="details">
-          <div class="title">Shopping</div>
-          <div class="transactions"> 3 transactions</div>
+          <div class="title">{{category.name}}</div>
+          <div class="transactions"> {{category.size}} transactions</div>
         </div>
         <div class="amount">$1'300.00</div>
       </li>
@@ -17,17 +17,34 @@
 export default {
   name: 'budget',
   computed: {
-    count () {
-      return this.$store.state.article
+    categories () {
+      var categories = this.$store.state.categories
+      var categoriesWithExpenses = []
+      for (var i = 0; i < categories.length; i++) {
+        if (categories[i]['expenses'].length > 0) {
+          // amount of expenses in this category
+          categories[i]['size'] = categories[i]['expenses'].length
+
+          // total of this category
+          var total = 0
+          for (var j = 0; j < categories[i]['expenses'].length; j++) {
+            total = total + categories[i]['expenses'][j]['amount']
+          }
+          categories[i]['total'] = total
+          console.log(total)
+
+          categoriesWithExpenses.push(categories[i])
+        }
+      }
+      return categoriesWithExpenses
     }
   },
   data () {
     return {
-      msg: ''
+      msg: []
     }
   },
   mounted () {
-    console.log(this.$store.state.article)
   }
 }
 </script>
@@ -40,6 +57,7 @@ export default {
     left: 0;
     width: 100vw;
     list-style: none;
+    padding: 0;
   }
 
   .sections li {
@@ -48,7 +66,7 @@ export default {
     height: 54px;
     background: white;
     border: 1px solid #e5e5e5;
-    margin: 0 auto;
+    margin: 0 auto 8px auto;
     border-radius: 2px;
   }
 
